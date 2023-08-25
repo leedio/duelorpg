@@ -33,11 +33,12 @@ public class Personagem {
 
     
     public void atacar(Personagem alvo){
-        int mira = rd.nextInt(15)+1;
-        if (alvo.acerto >= mira) { 
+        int mira = rd.nextInt(15);
+        if (this.acerto >= mira) { 
         int danoCausado = Math.max(0,ataque-alvo.defesa);
         alvo.receberDano(danoCausado);
         System.out.println(nome + " Atacou "+ alvo.nome + " causando "+ danoCausado + " de dano.");
+        System.out.println(alvo.nome + ": HP -> " + alvo.vida);
         } else {
             System.out.println(this.nome+ " ERROU");
         }
@@ -50,17 +51,50 @@ public class Personagem {
                 alvo.atacar(this);
             } else {
                 System.out.println(alvo.nome + " Perdeu");
+                System.out.println();
+                System.out.println(this.nome + " GANHOU a PARTIDA");
             }
             if (estaVivo()== false){
                 System.out.println(this.nome + " Perdeu");
+                System.out.println();
+                System.out.println(alvo.nome + " GANHOU a PARTIDA");
+
             }
         }
         
     }
 
+    public void torneio(Personagem p1, Personagem p2, Personagem p3, Personagem p4){
+        Personagem p5;
+        Personagem p6;
+        p1.duelo(p2);
+        if (p1.vida<=0){
+            System.out.println(p2.nome + " Avança");
+            p2.vida+=300;
+            p5 = p2;
+        } else {
+            System.out.println(p1.nome + " Avança");
+            p1.vida+=300;
+            p5 = p1;
+        }
+        p3.duelo(p4);
+        if (p3.vida<=0){
+            p4.vida+=300;
+            System.out.println(p4.nome + " Avança");
+            p6 =p4;
+        } else {
+            p3.vida+=300;
+            p6=p3;
+            System.out.println(p3.nome + " Avança");
+        }
+
+            p5.duelo(p6);
+
+    }
+
     private void receberDano(int dano) {
         vida = Math.max(0,vida -dano);
-        System.out.println(nome + " recebeu " + dano + " de dano. Vida restante: " + vida);
+       // System.out.println(nome + " recebeu " + dano + " de dano. Vida restante: " + vida);
     }
 
     public boolean estaVivo(){

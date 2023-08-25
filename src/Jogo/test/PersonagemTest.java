@@ -9,19 +9,21 @@ public class PersonagemTest {
        
     
 
-        Personagem twitch = new Personagem("Twitch", 100, 27, 682,11);
-        Personagem ashe = new Personagem("Ashe", 59, 26, 640,9);
-        Personagem teemo = new Personagem("Teemo", 54, 24, 598,8);
-        Personagem garen = new Personagem("Garen", 69, 38, 690,5);
-        Personagem talon = new Personagem("Talon", 68, 30, 658,6);
+        Personagem twitch = new Personagem("Twitch", 115, 27, 682,11);
+        Personagem ashe = new Personagem("Ashe", 105, 26, 640,9);
+        Personagem teemo = new Personagem("Teemo", 94, 24, 598,9);
+        Personagem garen = new Personagem("Garen", 90, 40, 690,6);
+        Personagem talon = new Personagem("Talon", 108, 35, 658,7);
 
        //twitch.atacar(talon);
 
        //twitch.x1(twitch, talon);
 
        //twitch.atacar(talon);
-       twitch.duelo(talon);
-       ashe.duelo(teemo);
+       //twitch.duelo(talon);
+       //ashe.duelo(teemo);
+
+        twitch.torneio(twitch, teemo, garen, talon);
 
 
     }
