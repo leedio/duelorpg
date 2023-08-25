@@ -52,16 +52,25 @@ public class Personagem {
             } else {
                 System.out.println(alvo.nome + " Perdeu");
                 System.out.println();
+                System.out.println(this.toString());
+                System.out.println();
                 System.out.println(this.nome + " GANHOU a PARTIDA");
             }
             if (estaVivo()== false){
                 System.out.println(this.nome + " Perdeu");
+                System.out.println();
+                System.out.println(alvo.toString());
                 System.out.println();
                 System.out.println(alvo.nome + " GANHOU a PARTIDA");
 
             }
         }
         
+    }
+
+    public void campeonado(Personagem p1, Personagem p2, Personagem p3, Personagem p4, Personagem p5, Personagem p6, Personagem p7, Personagem p8){
+        torneio(p1, p3, p2, p4);
+        torneio(p5, p7, p6, p8);
     }
 
     public void torneio(Personagem p1, Personagem p2, Personagem p3, Personagem p4){
@@ -103,7 +112,7 @@ public class Personagem {
 
     @Override
     public String toString() {
-        return "Nome=" + nome + ", ataque: " + ataque + ", defesa: " + defesa + ", vida: " + vida;
+        return "Nome: " + nome + "\t ataque: " + ataque + "\t defesa: " + defesa + "\t vida: " + vida + "\t Taxa de Acerto: " + acerto+"/15";
     }
 
     public String getNome() {
@@ -136,10 +145,5 @@ public class Personagem {
 
     public void setVida(int vida) {
         this.vida = vida;
-    }
-
-    
-    
-
-    
+    }    
 }
